@@ -6,11 +6,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/filmes")
+@RequestMapping("/filmes")
 public class FilmesController {
+
+    private final FilmesService filmesService;
+
+    public FilmesController(FilmesService filmesService) {
+        this.filmesService = filmesService;
+    }
+
+
     @GetMapping
-    public ResponseEntity<String> todosFilmes(){
-        return new ResponseEntity<String>("Todos os filmes!", HttpStatus.OK);
+    public ResponseEntity<List<Filmes>> todosFilmes(){
+        return new ResponseEntity<>(filmesService.todosFilmes(), HttpStatus.OK);
     }
 }
