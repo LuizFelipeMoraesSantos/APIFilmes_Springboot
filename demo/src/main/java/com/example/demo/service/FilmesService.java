@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.entity.Filmes;
+import com.example.demo.repository.FilmesRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
